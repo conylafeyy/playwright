@@ -15,6 +15,17 @@ const user = require('..//user');
     await page.locator('button:has-text("Войти")').click();
     await expect(page.url()).toBe('https://netology.ru/profile');
     await expect(page.locator('h2')).toHaveText("Мои курсы и профессии");
+    
+    await browser.close();
+})();
+
+(async() => {
+    const browser = await chromium.launch({
+        headless: false,
+        slowMo: 10000
+    });
+    const page = await browser.newPage();
+    await page.goto('https://netology.ru/?modal=sign_in');
 
     //test 2
     await page.locator('[placeholder="Email", force: true]').fill(user.invEmail);
