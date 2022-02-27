@@ -1,5 +1,5 @@
 const {chromium} =require('playwright');
-const user = require('user.js');
+const user = require('..//user');
 
 (async() => {
     const browser = await chromium.launch({
